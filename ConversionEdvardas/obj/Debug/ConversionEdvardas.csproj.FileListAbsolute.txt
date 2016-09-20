@@ -8,3 +8,13 @@ C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\ConversionEdvardas\Co
 C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\ConversionEdvardas\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb
 C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\ConversionEdvardas\ConversionEdvardas\bin\Debug\Colorful.Console.dll
 C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\ConversionEdvardas\ConversionEdvardas\bin\Debug\Colorful.Console.xml
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe.config
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.exe
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\ConversionEdvardas.pdb
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\Colorful.Console.dll
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\Colorful.Console.xml
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.csprojResolveAssemblyReference.cache
