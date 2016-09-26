@@ -9,12 +9,33 @@ namespace ConversionEdvardas
         public List<Transaction> GetPath => _path;
 
         private Transaction _attributedTo;
+        private bool _hasRecentAdInteraction;
 
-
-        public ConversionPath(List<Transaction> path, Transaction attributedTo)
+        public ConversionPath(List<Transaction> path)
         {
             _path = path;
-            _attributedTo = attributedTo;
+            _attributedTo = Data.GetAttributedTransOfPath(_path, GetFirsLogPoint());
+
+            InheritFromAttributedTransaction();
+            SetRecentAdInteraction();
+        }
+
+        private void SetRecentAdInteraction()
+        {
+            var logPointTime = GetFirsLogPoint().LogTime;
+            if (_path.Any(a => logPointTime - a.LogTime < Data.RecentAdInteractionSpan)) _hasRecentAdInteraction = true;
+            else _hasRecentAdInteraction = false;
+        }
+
+        private void InheritFromAttributedTransaction()
+        {
+            if (_attributedTo == null) return;
+
+            for (var i = _path.IndexOf(_attributedTo); i < _path.Count; i++)
+            {
+                if (_path[i].TransactionType == Data.TrackingPoint)
+                    _path[i].AttributeTo(_attributedTo);
+            }
         }
 
 
@@ -38,13 +59,12 @@ namespace ConversionEdvardas
 
         private Transaction GetFirsLogPoint()
         {
-            var firstInLeadChain = _path.Last();
-            foreach (var trans in Enumerable.Reverse(_path))
+            foreach (var trans in _path)
             {
-                if (trans.TransactionType != 100) return firstInLeadChain;
-                firstInLeadChain = trans;
+                if (trans.TransactionType == Data.TrackingPoint)
+                    return trans;
             }
-            return firstInLeadChain;
+            return null;
         }
 
 

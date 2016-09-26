@@ -9,13 +9,13 @@ namespace ConversionEdvardas
         {
             var transactions = Data.ReadJson();
 
-            var allPaths = getConversionPaths(transactions);
+            var allPaths = GetConversionPaths(transactions);
             
            Data.PrintPathInfo(allPaths); 
         }
 
 
-        private static List<ConversionPath> getConversionPaths(List<Transaction> transactions)
+        private static List<ConversionPath> GetConversionPaths(List<Transaction> transactions)
         {
             var allPaths = new List<ConversionPath>();
 
@@ -23,30 +23,19 @@ namespace ConversionEdvardas
             {
                 var filteredTransactions = transactions.Where(a => a.CookieId == cookie).OrderBy(a => a.LogTime);
 
-                Transaction attributeToTrans = null;
-
                 var stack = new List<Transaction>();
 
                 foreach (var trans in filteredTransactions)
                 {
-                    switch (trans.TransactionType)
-                    {
-                        case 1:
-                        case 2:
-                            attributeToTrans = Data.DecideAttribution(attributeToTrans, trans);
-                            break;
-                        case 100:
-                            trans.AttributeTo(attributeToTrans);
-                            break;
-                    }
                     stack.Add(trans);
                     if (Data.IsTransLead(trans))
                     {
-                        allPaths.Add(new ConversionPath(stack, attributeToTrans));
+                        allPaths.Add(new ConversionPath(stack));
                     }
                 }
             }
             return allPaths;
         }
+
     }
 }
