@@ -21,3 +21,6 @@ C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\Conv
 C:\Users\WIN8\Desktop\Projects\PathToConversion\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe.config
 C:\Users\WIN8\Desktop\Projects\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.exe
 C:\Users\WIN8\Desktop\Projects\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe.config
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\obj\Debug\ConversionEdvardas.exe
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb
