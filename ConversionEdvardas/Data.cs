@@ -11,7 +11,7 @@ namespace ConversionEdvardas
     {
         public static List<string> SearchEngines = new List<string> { "google" };
         public static List<string> SocialMediaSites = new List<string> { "facebook" };
-        public static List<string> ReferringSites = new List<string> { "orai.lt" };
+        //public static List<string> ReferringSites = new List<string> { "orai.lt" };
 
 
         public static Dictionary<int, string> TransTypes = new Dictionary<int, string>
@@ -58,8 +58,7 @@ namespace ConversionEdvardas
             if (url == null) return "Direct link";
             if (SearchEngines.Any(s => url.Contains(s))) return "Natural search";
             if (SocialMediaSites.Any(s => url.Contains(s))) return "Social media";
-            if (ReferringSites.Any(s => url.Contains(s))) return "Referring site";
-            return "Referrer unknown";
+            return "Referring site";
         }
 
 
