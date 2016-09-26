@@ -18,3 +18,6 @@ C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\Conv
 C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\Colorful.Console.xml
 C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Edvard\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.csprojResolveAssemblyReference.cache
+C:\Users\WIN8\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe.config
+C:\Users\WIN8\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.exe
+C:\Users\WIN8\Dropbox\Adform\09.16 Conversion (Edvardas)\PathToConversion\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb

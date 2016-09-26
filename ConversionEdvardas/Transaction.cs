@@ -35,7 +35,7 @@ namespace ConversionEdvardas
 
         public override string ToString()
         {
-            return $"|{LogTime,22}|{Data.TransTypes[TransactionType],-15}|{Campaign,-15}|" +
+            return $"|{LogTime,22}|{Data.TransTypeName[TransactionType],-15}|{Campaign,-18}|" +
                    $"{Media,-10}|{Banner,-18}|{LogPointName,-14}|";
         }
 
@@ -44,13 +44,13 @@ namespace ConversionEdvardas
             var color = Color.White;
             switch (TransactionType)
             {
-                case 1:
+                case Data.Impression:
                     color = Color.Aquamarine;
                     break;
-                case 2:
+                case Data.Click:
                     color = Color.Aqua;
                     break;
-                case 100:
+                case Data.TrackingPoint:
                     color = Color.Yellow;
                     break;
             }
