@@ -12,7 +12,6 @@ namespace ConversionEdvardas
     {
         public static List<string> SearchEngines = new List<string> { "google" };
         public static List<string> SocialMediaSites = new List<string> { "facebook" };
-        //public static List<string> ReferringSites = new List<string> { "orai.lt" };
 
         public const int Impression = 1;
         public const int Click = 2;
@@ -23,6 +22,7 @@ namespace ConversionEdvardas
         public static readonly TimeSpan ImpressionLifeSpan = TimeSpan.FromDays(7);
         public static readonly TimeSpan ClickLifeSpan = TimeSpan.FromDays(28);
         public static readonly TimeSpan RecentAdInteractionSpan = TimeSpan.FromSeconds(30);
+        public static readonly TimeSpan SessionTimeoutSpan = TimeSpan.FromMinutes(30);
 
         public static Dictionary<int, string> TransTypeName = new Dictionary<int, string>
         {

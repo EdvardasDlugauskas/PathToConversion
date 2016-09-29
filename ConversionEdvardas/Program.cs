@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Colorful;
 
 namespace ConversionEdvardas
 {
@@ -11,7 +12,9 @@ namespace ConversionEdvardas
 
             var allPaths = GetConversionPaths(transactions);
             
-           Data.PrintPathInfo(allPaths); 
+           Data.PrintPathInfo(allPaths);
+
+            Console.ReadLine();
         }
 
 
