@@ -13,7 +13,7 @@ namespace ConversionEdvardas
 
         public ConversionPath(List<Transaction> path)
         {
-            _path = path;
+            _path = path.OrderBy(a=>a.LogTime).ToList();
             _attributedTo = Data.GetAttributedTransOfPath(_path, GetFirsLogPoint());
 
             InheritFromAttributedTransaction();
@@ -89,27 +89,32 @@ namespace ConversionEdvardas
 
         private List<string> AggregateMedia()
         {
-            if (_path.Count == 1) return new List<string> {_path[0].Media};
-
             var result = new List<string>();
 
-            var lastMedia = _path[0].Media;
+            string lastMedia = null;
             var mediaCount = 1;
-            foreach (var trans in _path.Skip(1))
+            foreach (var trans in _path)
             {
+                if (trans.TransactionType == Data.TrackingPoint) //|| trans.Media == null)
+                    continue;
+
                 var newMedia = trans.Media;
+
                 if (newMedia == lastMedia)
                 {
                     mediaCount++;
-                    continue;
                 }
-                if (mediaCount > 1)
-                    result.Add($"[{lastMedia} x{mediaCount}]");
                 else
-                    result.Add($"[{lastMedia}]");
-                lastMedia = newMedia;
-                mediaCount = 1;
+                {
+                    if (lastMedia != null)
+                        result.Add(mediaCount > 1 ? $"[{lastMedia} x{mediaCount}]" : $"[{lastMedia}]");
+                    lastMedia = newMedia;
+                    mediaCount = 1;
+                }
             }
+
+            if (lastMedia != null)
+                result.Add(mediaCount > 1 ? $"[{lastMedia} x{mediaCount}]" : $"[{lastMedia}]");
 
             return result;
         }

@@ -33,7 +33,7 @@ namespace ConversionEdvardas
             {100, "Tracking point"}
         };
 
-        public static List<int> LeadIds = new List<int> { 1001, 3240 };
+        public static List<int?> LeadIds = new List<int?> { 1001, 3240 };
 
 
         public static List<Transaction> ReadJson(string filename = "transactions.txt")
@@ -74,7 +74,8 @@ namespace ConversionEdvardas
 
         public static bool IsTransLead(Transaction trans)
         {
-            return trans.TransactionType == TrackingPoint && trans.LogPointName.ToLower().Contains("thank you");
+            return LeadIds.Contains(trans.ID_LogPoints);
+            //return trans.TransactionType == TrackingPoint && trans.LogPointName.ToLower().Contains("thank you");
         }
 
 
@@ -88,13 +89,13 @@ namespace ConversionEdvardas
         }
 
 
-        public static HashSet<int> CookiesWithConversion(List<Transaction> transactions)
+        public static HashSet<KeyValuePair<int, string>> CookiesWithConversion(List<Transaction> transactions)
         {
-            var cookies = new HashSet<int>();
+            var cookies = new HashSet<KeyValuePair<int, string>>();
             foreach (var trans in transactions)
             {
                 if (trans.TransactionType == TrackingPoint && trans.LogPointName.ToLower().Contains("thank you"))
-                    cookies.Add(trans.CookieId);
+                    cookies.Add(new KeyValuePair<int, string>(trans.CookieId, trans.ClientSite));
             }
             return cookies;
         }
