@@ -5,15 +5,15 @@ namespace ConversionEdvardas
 {
     public class ConversionPath
     {
-        private List<Transaction> _path;
+        private readonly List<Transaction> _path;
         public List<Transaction> GetPath => _path;
 
-        private Transaction _attributedTo;
+        private readonly Transaction _attributedTo;
         private bool _hasRecentAdInteraction;
 
         public ConversionPath(List<Transaction> path)
         {
-            _path = path;
+            _path = path.OrderBy(a=>a.LogTime).ToList();
             _attributedTo = Data.GetAttributedTransOfPath(_path, GetFirsLogPoint());
 
             InheritFromAttributedTransaction();
@@ -43,68 +43,78 @@ namespace ConversionEdvardas
         {
             var fullPath = AggregateMedia();
             if (_attributedTo != null)
-                fullPath.Add($"[Lead|Campaign|{GetInteraction()}]");
+                fullPath.Add($"[Lead|{InteractionType}|Campaign]");
             else
-                fullPath.Add($"[Lead|Non-Campaign|{GetReferrer()}]");
+                fullPath.Add($"[Lead|Non-Campaign|{Referrer}]");
 
             return string.Join(" -> ", fullPath); // → no unicode in console ;(
         }
 
 
-        private string GetReferrer()
-        {
-            return Data.GetReferrerType(GetFirsLogPoint());
-        }
+        private string Referrer => Data.GetReferrerType(GetFirsLogPoint());
 
 
         private Transaction GetFirsLogPoint()
         {
-            foreach (var trans in _path)
+            var firstLeadInChain = _path.Last();
+            foreach (var trans in Enumerable.Reverse(_path))
             {
-                if (trans.TransactionType == Data.TrackingPoint)
-                    return trans;
+                if (trans.TransactionType != Data.TrackingPoint) continue;
+
+                if (firstLeadInChain.LogTime - trans.LogTime < Data.SessionTimeoutSpan)
+                    firstLeadInChain = trans;
+                else return firstLeadInChain;
             }
-            return null;
+            return firstLeadInChain;
         }
 
 
-        private string GetInteraction()
+        private string InteractionType
         {
-            switch (_attributedTo.TransactionType)
+            get
             {
-                case 1:
-                    return "Post-Impression";
-                case 2:
-                    return "Post-Click";
-                default:
-                    return "*Attributed to unspecified transaction type*";
+                switch (_attributedTo.TransactionType)
+                {
+                    case 1:
+                        return "Post-Impression";
+                    case 2:
+                        return "Post-Click";
+                    default:
+                        return "*Attributed to unspecified transaction type*";
+                }
             }
+            
         }
 
 
         private List<string> AggregateMedia()
         {
-            if (_path.Count == 1) return new List<string> {_path[0].Media};
-
             var result = new List<string>();
 
-            var lastMedia = _path[0].Media;
+            string lastMedia = null;
             var mediaCount = 1;
-            foreach (var trans in _path.Skip(1))
+            foreach (var trans in _path)
             {
+                if (trans.TransactionType == Data.TrackingPoint) //|| trans.Media == null)
+                    continue;
+
                 var newMedia = trans.Media;
+
                 if (newMedia == lastMedia)
                 {
                     mediaCount++;
-                    continue;
                 }
-                if (mediaCount > 1)
-                    result.Add($"[{lastMedia} x{mediaCount}]");
                 else
-                    result.Add($"[{lastMedia}]");
-                lastMedia = newMedia;
-                mediaCount = 1;
+                {
+                    if (lastMedia != null)
+                        result.Add(mediaCount > 1 ? $"[{lastMedia} x{mediaCount}]" : $"[{lastMedia}]");
+                    lastMedia = newMedia;
+                    mediaCount = 1;
+                }
             }
+
+            if (lastMedia != null)
+                result.Add(mediaCount > 1 ? $"[{lastMedia} x{mediaCount}]" : $"[{lastMedia}]");
 
             return result;
         }

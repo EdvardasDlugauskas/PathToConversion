@@ -15,7 +15,7 @@ namespace ConversionEdvardas
         public string Media { get; set; }
         public string Banner { get; set; }
         public string TrackingSetup { get; set; }
-        public int? IdLogPoints { get; set; }
+        public int? ID_LogPoints { get; set; }
         public string LogPointName { get; set; }
         public string UrLfrom { get; set; }
         public string UrLto { get; set; }

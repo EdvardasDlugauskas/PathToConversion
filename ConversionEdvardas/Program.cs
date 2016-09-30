@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Colorful;
 
 namespace ConversionEdvardas
 {
@@ -7,11 +8,13 @@ namespace ConversionEdvardas
     {
         static void Main()
         {
-            var transactions = Data.ReadJson();
+            var transactions = Data.ReadJson("test.txt");
 
             var allPaths = GetConversionPaths(transactions);
             
-           Data.PrintPathInfo(allPaths); 
+            Data.PrintPathInfo(allPaths);
+
+            Console.ReadLine();
         }
 
 
@@ -20,8 +23,9 @@ namespace ConversionEdvardas
             var allPaths = new List<ConversionPath>();
 
             foreach (var cookie in Data.CookiesWithConversion(transactions))
+                    // <cookieId, client>
             {
-                var filteredTransactions = transactions.Where(a => a.CookieId == cookie).OrderBy(a => a.LogTime);
+                var filteredTransactions = transactions.Where(a => a.CookieId == cookie.Key && a.ClientSite == cookie.Value).OrderBy(a => a.LogTime);
 
                 var stack = new List<Transaction>();
 
