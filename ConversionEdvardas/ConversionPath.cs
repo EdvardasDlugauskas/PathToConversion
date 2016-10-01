@@ -29,12 +29,12 @@ namespace ConversionEdvardas
 
         private void InheritFromAttributedTransaction()
         {
-            if (_attributedTo == null) return;
-
-            for (var i = _path.IndexOf(_attributedTo); i < _path.Count; i++)
+            foreach (Transaction trans in _path)
             {
-                if (_path[i].TransactionType == Data.TrackingPoint)
-                    _path[i].AttributeTo(_attributedTo);
+                if (trans.TransactionType == 100)
+                {
+                    trans.AttributeTo(Data.GetAttributedTransOfPath(_path, trans));
+                }
             }
         }
 

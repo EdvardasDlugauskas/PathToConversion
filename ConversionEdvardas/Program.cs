@@ -8,7 +8,7 @@ namespace ConversionEdvardas
     {
         static void Main()
         {
-            var transactions = Data.ReadJson("test.txt");
+            var transactions = Data.ReadJson("bigdata.txt");
 
             var allPaths = GetConversionPaths(transactions);
             

@@ -35,8 +35,8 @@ namespace ConversionEdvardas
 
         public override string ToString()
         {
-            return $"|{LogTime,22}|{Data.TransTypeName[TransactionType],-15}|{Campaign,-18}|" +
-                   $"{Media,-10}|{Banner,-18}|{LogPointName,-14}|";
+            return $"|{LogTime,22}|{Data.TransTypeName[TransactionType],-15}|{Campaign,-25}|" +
+                   $"{Media,-15}|{Banner,-25}|{LogPointName,-25}|";
         }
 
         public void Print()
