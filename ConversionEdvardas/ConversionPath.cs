@@ -10,11 +10,14 @@ namespace ConversionEdvardas
 
         private readonly Transaction _attributedTo;
         private bool _hasRecentAdInteraction;
+        public int cookie;
 
         public ConversionPath(List<Transaction> path)
         {
             _path = path.OrderBy(a=>a.LogTime).ToList();
             _attributedTo = Data.GetAttributedTransOfPath(_path, GetFirsLogPoint());
+
+            cookie = _path[0].CookieId;
 
             InheritFromAttributedTransaction();
             SetRecentAdInteraction();
@@ -95,7 +98,7 @@ namespace ConversionEdvardas
             var mediaCount = 1;
             foreach (var trans in _path)
             {
-                if (trans.TransactionType == Data.TrackingPoint) //|| trans.Media == null)
+                if (trans.TransactionType == Data.TrackingPoint) 
                     continue;
 
                 var newMedia = trans.Media;
