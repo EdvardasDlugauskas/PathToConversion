@@ -56,7 +56,7 @@ namespace ConversionEdvardas
             {
                 Console.WriteLine(
                        "---------------------------------------------------------------------------------------------------------");
-                Console.WriteLine($"CookieID: {conversionPath.cookie}", Color.ForestGreen);
+                Console.WriteLine($"CookieID: {conversionPath.cookie}, count: {conversionPath.Count()}", Color.ForestGreen);
                 Console.WriteLine(conversionPath.GetAggregatedPath(), Color.WhiteSmoke);
                 Console.WriteLine();
                 conversionPath.Print();

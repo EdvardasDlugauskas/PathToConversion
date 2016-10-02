@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ConversionEdvardas
 {
-    public class ConversionPath
+    public class ConversionPath : IEnumerable <Transaction>
     {
         private readonly List<Transaction> _path;
         public List<Transaction> GetPath => _path;
@@ -128,6 +129,16 @@ namespace ConversionEdvardas
             {
                 trans.Print();
             }
+        }
+
+        public IEnumerator<Transaction> GetEnumerator()
+        {
+            return _path.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
