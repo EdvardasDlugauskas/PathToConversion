@@ -56,7 +56,7 @@ namespace ConversionEdvardas
             {
                 Console.WriteLine(
                        "---------------------------------------------------------------------------------------------------------");
-                Console.WriteLine($"CookieID: {conversionPath.cookie}, count: {conversionPath.Count()}", Color.ForestGreen);
+                Console.WriteLine($"CookieID: {conversionPath.CookieId}, count: {conversionPath.Count()}", Color.ForestGreen);
                 Console.WriteLine(conversionPath.GetAggregatedPath(), Color.WhiteSmoke);
                 Console.WriteLine();
                 conversionPath.Print();
@@ -90,12 +90,12 @@ namespace ConversionEdvardas
         }
 
                                                     // Clients with cookies
-        public static Dictionary<string, List<int>> CookiesWithConversion(List<Transaction> transactions)
+        public static Dictionary<string, List<int>> ClientsWithConversionCookies(List<Transaction> transactions)
         {
             return  transactions.GroupBy(a => a.ClientSite).ToDictionary(a=>a.Key, a=>a.Select(b=>b.CookieId).Distinct().ToList());
         }
 
-        public static Transaction GetAttributedTransOfPath(List<Transaction> transactions, Transaction logPoint)
+        public static Transaction GetAttribute(List<Transaction> transactions, Transaction logPoint)
         {
             var targetTime = logPoint.LogTime;
             var filtered = transactions.Where(a =>

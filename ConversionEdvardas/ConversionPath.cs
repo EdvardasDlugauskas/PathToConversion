@@ -11,14 +11,14 @@ namespace ConversionEdvardas
 
         private readonly Transaction _attributedTo;
         private bool _hasRecentAdInteraction;
-        public int cookie;
+        public int CookieId;
 
         public ConversionPath(List<Transaction> path)
         {
             _path = path;
-            _attributedTo = Data.GetAttributedTransOfPath(_path, GetFirsLogPoint());
+            _attributedTo = Data.GetAttribute(_path, GetFirsLogPoint());
 
-            cookie = _path[0].CookieId;
+            CookieId = _path[0].CookieId;
 
             InheritFromAttributedTransaction();
             SetRecentAdInteraction();
@@ -37,7 +37,7 @@ namespace ConversionEdvardas
             {
                 if (trans.TransactionType == 100)
                 {
-                    trans.AttributeTo(Data.GetAttributedTransOfPath(_path, trans));
+                    trans.AttributeTo(Data.GetAttribute(_path, trans));
                 }
             }
         }

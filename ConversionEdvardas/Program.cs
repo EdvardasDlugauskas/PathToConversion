@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Colorful;
 
 namespace ConversionEdvardas
@@ -22,9 +23,9 @@ namespace ConversionEdvardas
         {
             var allPaths = new List<ConversionPath>();
 
-            var clientAndCookies = Data.CookiesWithConversion(transactions);
+            var clientAndCookies = Data.ClientsWithConversionCookies(transactions);
 
-            foreach (var client in clientAndCookies)
+            Parallel.ForEach (clientAndCookies, client =>
             {
                 var filteredByClient = transactions.Where(a => a.ClientSite == client.Key).ToList();
                 var cookies = client.Value;
@@ -39,7 +40,7 @@ namespace ConversionEdvardas
                     }
 
                 }
-            }
+            });
             return allPaths;
         }
 
