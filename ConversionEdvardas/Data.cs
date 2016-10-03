@@ -12,7 +12,6 @@ namespace ConversionEdvardas
     {
         public static List<string> SearchEngines = new List<string> { "google" };
         public static List<string> SocialMediaSites = new List<string> { "facebook" };
-        //public static List<string> ReferringSites = new List<string> { "orai.lt" };
 
         public const int Impression = 1;
         public const int Click = 2;
