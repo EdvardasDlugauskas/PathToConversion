@@ -19,7 +19,6 @@ namespace ConversionEdvardas
         public const int Event = 21;
         public const int TrackingPoint = 100;
 
-        public static readonly TimeSpan ZeroSpan = TimeSpan.Zero;
         public static readonly TimeSpan ImpressionLifeSpan = TimeSpan.FromDays(7);
         public static readonly TimeSpan ClickLifeSpan = TimeSpan.FromDays(28);
         public static readonly TimeSpan RecentAdInteractionSpan = TimeSpan.FromSeconds(30);
@@ -56,7 +55,6 @@ namespace ConversionEdvardas
             {
                 Console.WriteLine(
                        "---------------------------------------------------------------------------------------------------------");
-                Console.WriteLine($"CookieID: {conversionPath.cookie}, count: {conversionPath.Count()}", Color.ForestGreen);
                 Console.WriteLine(conversionPath.GetAggregatedPath(), Color.WhiteSmoke);
                 Console.WriteLine();
                 conversionPath.Print();
@@ -106,9 +104,9 @@ namespace ConversionEdvardas
         {
             var targetTime = logPoint.LogTime;
             var filtered = transactions.Where(a =>
-                (a.TransactionType == Impression && targetTime - a.LogTime <  ImpressionLifeSpan && targetTime - a.LogTime > ZeroSpan)
+                (a.TransactionType == Impression && targetTime - a.LogTime <  ImpressionLifeSpan)
                 ||
-                (a.TransactionType == Click && targetTime - a.LogTime < ClickLifeSpan && targetTime - a.LogTime > ZeroSpan));
+                (a.TransactionType == Click && targetTime - a.LogTime < ClickLifeSpan));
 
             Transaction bestTransaction = null;
             foreach (var transaction in filtered)

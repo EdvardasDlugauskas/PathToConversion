@@ -15,7 +15,7 @@ namespace ConversionEdvardas
         public string Media { get; set; }
         public string Banner { get; set; }
         public string TrackingSetup { get; set; }
-        public int? IdLogPoints { get; set; }
+        public int? ID_LogPoints { get; set; }
         public string LogPointName { get; set; }
         public string UrLfrom { get; set; }
         public string UrLto { get; set; }
@@ -35,8 +35,8 @@ namespace ConversionEdvardas
 
         public override string ToString()
         {
-            return $"|{LogTime,22}|{Data.TransTypeName[TransactionType],-15}|{Campaign,-18}|" +
-                   $"{Media,-10}|{Banner,-18}|{LogPointName,-14}|";
+            return $"|{LogTime,22}|{Data.TransTypeName[TransactionType],-15}|{Campaign,-25}|" +
+                   $"{Media,-15}|{Banner,-25}|{LogPointName,-25}|";
         }
 
         public void Print()
