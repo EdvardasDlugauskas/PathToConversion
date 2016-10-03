@@ -15,7 +15,7 @@ namespace ConversionEdvardas
 
         public ConversionPath(List<Transaction> path)
         {
-            _path = path.OrderBy(a=>a.LogTime).ToList();
+            _path = path;
             _attributedTo = Data.GetAttributedTransOfPath(_path, GetFirsLogPoint());
 
             cookie = _path[0].CookieId;

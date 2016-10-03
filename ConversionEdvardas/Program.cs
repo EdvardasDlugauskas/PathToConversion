@@ -22,20 +22,22 @@ namespace ConversionEdvardas
         {
             var allPaths = new List<ConversionPath>();
 
-            foreach (var cookie in Data.CookiesWithConversion(transactions))
-                    // <cookieId, client>
+            var clientAndCookies = Data.CookiesWithConversion(transactions);
+
+            foreach (var client in clientAndCookies)
             {
-                var filteredTransactions = transactions.Where(a => a.CookieId == cookie.Key && a.ClientSite == cookie.Value).OrderBy(a => a.LogTime);
-
-                var stack = new List<Transaction>();
-
-                foreach (var trans in filteredTransactions)
+                var filteredByClient = transactions.Where(a => a.ClientSite == client.Key).ToList();
+                var cookies = client.Value;
+                foreach (var cookie in cookies)
                 {
-                    stack.Add(trans);
-                    if (Data.IsTransLead(trans))
+                    var stack = new List<Transaction>();
+                    foreach (var trans in filteredByClient.Where(a => a.CookieId == cookie).OrderBy(a=>a.LogTime))
                     {
-                        allPaths.Add(new ConversionPath(stack));
+                        stack.Add(trans);
+                        if (Data.IsTransLead(trans))
+                            allPaths.Add(new ConversionPath(stack));
                     }
+
                 }
             }
             return allPaths;

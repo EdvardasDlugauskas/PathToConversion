@@ -24,3 +24,22 @@ C:\Users\WIN8\Desktop\Projects\PathToConversion\ConversionEdvardas\obj\Debug\Con
 C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe.config
 C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\obj\Debug\ConversionEdvardas.exe
 C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\ConversionEdvardas.pdb
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\Colorful.Console.dll
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\Colorful.Console.xml
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\WIN8\Desktop\Projects\PathToConversionEdvardas\ConversionEdvardas\obj\Debug\ConversionEdvardas.csprojResolveAssemblyReference.cache
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe.config
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\obj\Debug\ConversionEdvardas.exe
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\obj\Debug\ConversionEdvardas.pdb
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\ConversionEdvardas.exe
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\ConversionEdvardas.pdb
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\Colorful.Console.dll
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\MoreLinq.dll
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\Colorful.Console.xml
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\MoreLinq.xml
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\WIN8\Desktop\PathED speedup test\ConversionEdvardas\obj\Debug\ConversionEdvardas.csprojResolveAssemblyReference.cache
